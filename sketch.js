@@ -10,8 +10,8 @@ let hoverText = "";
 
 // to store original high‑dim corpus embeddings
 let corpusEmbeddings = [];
-let topK = 10;          // 显示多少条最相似文本
-let perPersonTopN = 5;  // 每个人用TopN条来算平均分（更稳定）
+let topK = 10;       
+let perPersonTopN = 5; 
 let allLoaded = 0;
 
 function preload() {
@@ -24,7 +24,6 @@ function preload() {
 }
 
 function addPersonLines(name, arr) {
-  // 去掉空行，并给每行加标签
   let cleaned = arr
     .map(s => s.trim())
     .filter(s => s.length > 0)
@@ -34,7 +33,7 @@ function addPersonLines(name, arr) {
 
   allLoaded++;
   if (allLoaded === 4) {
-    console.log("✅ all people loaded, total lines:", lines.length);
+    console.log("all people loaded, total lines:", lines.length);
   }
 }
 
@@ -150,11 +149,11 @@ async function runSearch() {
     points[i].similarity = similarities[i];
   }
 
-  // ---- helpers ----
+  //helpers
   function getPersonName(lineText) {
-    let idx = lineText.indexOf("|");
+    let idx = lineText.indexOf("|");//find separator between name and content, unknown or return Unknown if not found
     if (idx === -1) return "Unknown";
-    return lineText.slice(0, idx).trim();
+    return lineText.slice(0, idx).trim();//return content only
   }
 
   function getContentOnly(lineText) {
@@ -164,11 +163,11 @@ async function runSearch() {
     return lineText.slice(idx + 1).trim();
   }
 
-  // ---- per-person max/min ----
+
   let stats = {};
 
   for (let i = 0; i < lines.length; i++) {
-    let fullText = lines[i];          // e.g. "Molly | Today I ate ..."
+    let fullText = lines[i]; 
     let name = getPersonName(fullText);
     let score = similarities[i];
 
@@ -192,7 +191,7 @@ async function runSearch() {
     }
   }
 
-  // ---- sort by max desc ----
+
   let arr = Object.entries(stats).map(([name, s]) => ({
     name,
     maxScore: s.maxScore,
@@ -201,9 +200,9 @@ async function runSearch() {
     minLine: s.minLine
   }));
 
-  arr.sort((a, b) => b.maxScore - a.maxScore);
+  arr.sort((a, b) => b.maxScore - a.maxScore);//sort by max similarity descending
 
-  // ---- output (content only) ----
+  //output
   let out = "People ranking (by MAX similarity):\n\n";
 
   for (let p of arr) {
