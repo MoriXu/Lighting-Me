@@ -1,0 +1,26 @@
+embodied dataset, using sensors like a gyroscope
+hand-crafted small datasets
+labelling data
+JSON, filtering arrays
+JSON
+local storage of data in a browser
+large language models (openAi Chatgpt)
+sentiment analysis
+semantic search with embeddings
+word vectors, embeddings or word2vec 
+web scraping
+cleaning text
+APIs
+Open Air Quality API
+Data visualisaton
+Data sonification
+Averaging data
+Dealing with Time series (timestamps)
+Charts and graphs
+Chart.js
+D3 (graphing library)
+Transformers.js (finding other machine learning models)
+Markov Chains
+Data Surveillance (avoiding big tech)
+Scraping / using personal data tracked by other apps
+Synthetic or fake data (perhaps created by AI)
