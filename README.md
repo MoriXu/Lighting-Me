@@ -10,3 +10,4 @@ This project was created based on the TransformersEmbeddingsQueryClusterBiasUMAP
 
 ## Credits / Acknowledgements
 *The project was completed in collaboration with Yingning Liu, Xinchun Fu and Quinn Zhou*
+*In this project, we used ChatGPT to help implement some of the custom functions*
